@@ -5,6 +5,7 @@ import { Header } from "../../components/Header/Header";
 import { Title } from "../../components/Title/Title";
 import { Card } from "../../components/Card/Card";
 import { Input } from "../../components/Input/Input";
+import useBookData from "../../hooks/useAllBooks";
 
 const gendersBooks = [
   "Ação",
@@ -17,6 +18,10 @@ const gendersBooks = [
 
 export function Home() {
   const [selectedGender, setSelectedGender] = useState<string[]>([]);
+  const { data } = useBookData();
+
+  console.log(data);
+
 
   const handleTitle = useCallback(
     (title: string) => {
@@ -62,7 +67,20 @@ export function Home() {
         </div>
         <Button title="Pesquisar Livros" className="px-5" />
         <Title title="Livros recomendados" className="my-5" />
-        <Card id="123" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+          {data?.map((data) => (
+            <Card key={data._id}
+              _id={data._id}
+              title={data.title}
+              authors={data.authors}
+              categories={data.categories}
+              pageCount={data.pageCount}
+              publishedDate={data.publishedDate}
+              thumbnailUrl={data.thumbnailUrl}
+              shortDescription={data.shortDescription} />
+          ))}
+        </div>
+        {/* <Card id="123" /> */}
       </Container>
     </div>
   )

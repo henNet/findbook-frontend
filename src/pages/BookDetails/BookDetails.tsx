@@ -3,6 +3,7 @@ import { Card } from "../../components/Card/Card.tsx";
 import { Container } from "../../components/Container/Container.tsx";
 import { HeaderTitle } from "../../components/Header/HeaderTitle";
 import { Title } from "../../components/Title/Title.tsx";
+import { useQuery } from "@tanstack/react-query";
 
 export function BookDetails() {
 
@@ -39,11 +40,11 @@ export function BookDetails() {
       </div>
       <div className="mt-8">
         <Title title="Recomendações com base nesse livro" />
-        <div className="gap-4 grid md:grid-cols-3 grid-cols-1 mt-8 mb-6">
+        {/* <div className="gap-4 grid md:grid-cols-3 grid-cols-1 mt-8 mb-6">
           <Card id="123" />
           <Card id="123" />
           <Card id="123" />
-        </div>
+        </div> */}
       </div>
     </Container>
   );
