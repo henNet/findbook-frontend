@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { Button } from "../../components/Button/Button";
 import { Container } from "../../components/Container/Container";
 import { Header } from "../../components/Header/Header";
@@ -6,6 +6,7 @@ import { Title } from "../../components/Title/Title";
 import { Card } from "../../components/Card/Card";
 import { Input } from "../../components/Input/Input";
 import useBookData from "../../hooks/useAllBooks";
+import { BooksContext } from "../../contexts/booksContexts";
 
 const gendersBooks = [
   "Ação",
@@ -19,9 +20,13 @@ const gendersBooks = [
 export function Home() {
   const [selectedGender, setSelectedGender] = useState<string[]>([]);
   const { data } = useBookData();
+  const { handleSetBooks } = useContext(BooksContext);
 
   console.log(data);
 
+  useEffect(() => {
+    handleSetBooks(data);
+  }, [handleSetBooks]);
 
   const handleTitle = useCallback(
     (title: string) => {

@@ -2,10 +2,11 @@ import axios, { AxiosPromise } from "axios";
 import BookEntity from "../interface/bookEntity";
 import { useQuery } from "@tanstack/react-query";
 
-const API_URL = "http://localhost:3333/books";
+// const API_URL = "http://localhost:3333/books";
+const API_URL = import.meta.env.VITE_BASE_URL;
 
 const fetchData = async (): AxiosPromise<BookEntity> => {
-  const response = axios.get(API_URL);
+  const response = await axios.get(API_URL);
   return response;
 };
 

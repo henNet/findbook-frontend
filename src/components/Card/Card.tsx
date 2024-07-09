@@ -8,7 +8,7 @@ export function Card(props: Book) {
 
   const navigate = useNavigate();
   const handleSelectBook = useCallback(() => {
-    navigate(`/${props._id}?title=${props.title}`)
+    navigate(`/${props._id}`)
   }, []);
 
   return (
