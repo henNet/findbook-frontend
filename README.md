@@ -35,7 +35,7 @@ Detalhes sobre a imersão [Semana do Herói [Edição 4]](https://herocodebr.not
 - **Descrição**: permite fazer chamadas em APIs (GET, POST, PUT, ...)
 - **Instalação**: npm i axios
 
-### Tanskrack/react-query
+### Tanstack/react-query
 
 - **Descrição**: permite automaticamente fazer cache dos dados. Isso significa que quando o usuáio visitar a página, os dados já estão disponíveis.
 - **Instalação**: npm i @tanstack/react-query
